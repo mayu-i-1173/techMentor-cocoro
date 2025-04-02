@@ -1,0 +1,408 @@
+$breakpoints: (
+  "sp": "screen and (max-width: 480px)",
+  "tab": "screen and (max-width: 768px)",
+  "pc": "screen and (max-width: 1024px)",
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin column() {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 共通部品 */
+html {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  color: #382710;
+  background-color: #fcfaf2;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+/*******************************
+共通パーツの指定
+*******************************/
+.u-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0px 100px;
+  @include mq(sp) {
+    padding: 0px 10px;
+  }
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+  @include mq(sp) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.u-sectionHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.u-sectionTitle {
+  font-weight: 500;
+  font-size: 32px;
+
+  @include mq(tab) {
+    font-size: 24px;
+  }
+}
+
+.u-section-subtitle {
+  font-size: 16px;
+}
+
+.main {
+  width: 69%;
+  padding: 64px 0;
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+
+.expand-btn-wrapper {
+  text-align: right;
+}
+
+/*******************************
+サイドバー
+*******************************/
+.sidebar-left {
+  @include column;
+  gap: 50px;
+}
+
+.sidebar {
+  @include column;
+  width: 28%;
+  padding: 64px 0;
+  gap: 50px;
+  @include mq(sp) {
+    width: 100%;
+  }
+}
+/*******************************
+ヘッダー
+*******************************/
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  @include mq(sp) {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.header-img {
+  @include mq(sp) {
+    margin: 12px 30px;
+  }
+}
+
+.header-nav {
+  @include mq(sp) {
+    background-color: #d4cdb3;
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
+.header-ul {
+  display: flex;
+  gap: 20px;
+  @include mq(sp) {
+    justify-content: center;
+  }
+}
+
+/*******************************
+ファーストビュー
+*******************************/
+.first-view {
+  position: relative;
+}
+.first-view-img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  @include mq(sp) {
+    height: auto;
+  }
+}
+
+.first-view-title {
+  width: 580px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 40px;
+  background-color: rgba(255, 253, 247, 0.9);
+  padding: 8px 32px;
+  font-weight: bold;
+  @include mq(sp) {
+    width: 300px;
+    font-size: 23px;
+    padding: 0;
+  }
+}
+
+/*******************************
+最新のお知らせ
+*******************************/
+.news {
+  @include column;
+  gap: 40px;
+  @include mq(sp) {
+    gap: 20px;
+  }
+}
+
+.news-top {
+  @include column;
+  gap: 6px;
+  max-width: 640px;
+}
+
+.news-img {
+  width: 100%;
+}
+
+.news-date {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.news-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.news-text {
+  letter-spacing: 0.06em;
+  font-size: 15px;
+}
+
+.news-bottom {
+  display: flex;
+  gap: 20px;
+  @include mq(sp) {
+    flex-direction: column;
+  }
+}
+
+.news-item {
+  @include column;
+  gap: 6px;
+  width: 100%;
+}
+
+/*******************************
+おすすめ雑貨特集
+*******************************/
+.special {
+  @include column;
+  gap: 35px;
+  @include mq(sp) {
+    gap: 20px;
+  }
+}
+
+.special-top {
+  @include column;
+  gap: 6px;
+  max-width: 640px;
+}
+
+.special-img {
+  width: 100%;
+}
+
+.special-date {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.special-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.special-text {
+  letter-spacing: 0.06em;
+  font-size: 15px;
+}
+
+.special-bottom {
+  display: flex;
+  gap: 20px;
+  @include mq(sp) {
+    flex-direction: column;
+  }
+}
+
+.special-item {
+  @include column;
+  gap: 6px;
+  width: 100%;
+}
+
+/*******************************
+商品カテゴリ
+*******************************/
+.category {
+  @include column;
+  gap: 20px;
+}
+
+.category-top {
+  @include column;
+  gap: 10px;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  gap: 4px;
+}
+
+.category-img {
+  width: 100%;
+}
+
+.category-btn {
+  border: 0.5px solid #382710;
+  border-radius: 5px;
+  padding: 10px 4px;
+}
+
+.category-text {
+  font-size: 14px;
+}
+
+.category-search {
+  display: flex;
+  border: 1px solid #d4cdb3;
+  border-radius: 3px;
+  height: 43px;
+}
+
+.category-input {
+  width: calc(100% - 53px);
+  background-color: #ffffff;
+}
+
+.category-input-btn {
+  width: 53px;
+  background-color: #d4cdb3;
+  padding: 10px;
+}
+
+/*******************************
+人気記事
+*******************************/
+.article {
+  @include column;
+  gap: 20px;
+}
+
+.article-top {
+  @include column;
+  gap: 12px;
+}
+
+.article-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #d4cdb3;
+}
+
+.article-item:last-child {
+  border-bottom: 1px solid #d4cdb3;
+}
+
+/*******************************
+投稿記事
+*******************************/
+.post {
+  @include column;
+  gap: 20px;
+}
+
+.post-top {
+  @include column;
+  gap: 12px;
+}
+
+/*******************************
+フッター
+*******************************/
+.footer {
+  height: 300px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  @include mq(sp) {
+    height: auto;
+    flex-direction: column-reverse;
+    padding: 48px 30px 14px;
+    align-items: flex-start;
+    gap: 50px;
+  }
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-right {
+  display: flex;
+  gap: 100px;
+  @include mq(sp) {
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+  }
+}
+
+.footer-item {
+  @include column;
+  gap: 13px;
+}
+
+.footer-title {
+  span {
+    border-bottom: 1px solid #d4cdb3;
+  }
+}
+
+.footer-info {
+  @include column;
+  gap: 5px;
+}
